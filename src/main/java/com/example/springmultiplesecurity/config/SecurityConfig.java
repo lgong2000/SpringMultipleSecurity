@@ -16,10 +16,12 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 public class SecurityConfig {
     @Bean
+    @Order(1)
     SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .securityMatcher("/api/**")
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/api/**").authenticated();
+                    auth.anyRequest().authenticated();
                 })
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(withDefaults())
@@ -27,9 +29,10 @@ public class SecurityConfig {
     }
 
     @Bean
-    @Order(1)
+    @Order(2)
     SecurityFilterChain h2ConsoleSecurityFilterChain(HttpSecurity http) throws Exception{
         return http
+                .securityMatcher(AntPathRequestMatcher.antMatcher("/h2-console/**"))
                 .authorizeHttpRequests( auth -> {
                         auth.requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll();
                 })

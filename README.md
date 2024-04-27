@@ -28,3 +28,5 @@ Version 3
 2 SecurityFilterChain
 @Order(1) is necessary when running first
 
+Version 4
+Use securityMatcher to restrict the SecurityFilterChain scope
