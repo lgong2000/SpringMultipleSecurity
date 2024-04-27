@@ -23,3 +23,8 @@ http://localhost:8080/h2-console
 Version 2
 Enable Spring Security
 H2-console need PermitAll to run
+
+Version 3
+2 SecurityFilterChain
+@Order(1) is necessary when running first
+
