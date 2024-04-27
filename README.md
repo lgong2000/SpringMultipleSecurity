@@ -30,3 +30,9 @@ Version 3
 
 Version 4
 Use securityMatcher to restrict the SecurityFilterChain scope
+
+Version 5
+http://localhost:8080/  #PermitAll
+http://localhost:8080/private   #FormLogin
+http://localhost:8080/api/posts #Default Login(Popup Window)
+http://localhost:8080/h2-console    #PermitAll - Click Connect to further Check
