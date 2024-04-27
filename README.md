@@ -19,3 +19,7 @@ schema.sql is run automatically
 H2-console:
 http://localhost:8080/h2-console
     JDBC URL: jdbc:h2:mem:blog
+
+Version 2
+Enable Spring Security
+H2-console need PermitAll to run
